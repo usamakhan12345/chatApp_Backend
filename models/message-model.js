@@ -1,18 +1,22 @@
 import mongoose from "mongoose";
 import { Schema } from "mongoose";
 
-
-const chat_messages_schema = new Schema({
-    sender : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : "users"
+const chat_messages_schema = new Schema(
+  {
+    sender: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "users",
     },
-    content : {
-        type : mongoose.Schema.Types.String,
+    message: {
+      type: mongoose.Schema.Types.String,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-    }
-},{
-    timestamps : true
-})
-
-export const chatMessages = new mongoose.model('chatMessages',chat_messages_schema)
+export const chatMessages = new mongoose.model(
+  "chatMessages",
+  chat_messages_schema
+);
